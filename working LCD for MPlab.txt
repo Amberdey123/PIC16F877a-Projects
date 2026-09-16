@@ -1,0 +1,109 @@
+#include <xc.h>
+
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config BOREN = ON
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+#define _XTAL_FREQ 20000000UL
+
+
+void send(unsigned char value, unsigned char rs)
+{
+    PORTD = value;
+
+    RC1 = rs;        // RS
+    RC0 = 0;         // R/W = 0
+
+    RC2 = 1;         // E = 1
+    __delay_ms(1);
+    RC2 = 0;         // E = 0
+
+    __delay_ms(5);
+}
+
+
+void main(void)
+{
+    TRISC = 0x00;
+    TRISD = 0x00;
+
+    PORTC = 0x00;
+    PORTD = 0x00;
+
+    /*
+     * Give LCD plenty of time after power-up
+     */
+    __delay_ms(200);
+
+
+    /*
+     * LCD INITIALIZATION
+     *
+     * Force 8-bit mode
+     */
+    
+    send(0x30, 0);
+    __delay_ms(10);
+
+    send(0x30, 0);
+    __delay_ms(10);
+
+    send(0x30, 0);
+    __delay_ms(10);
+
+
+    /*
+     * 8-bit, 2-line, 5x8 font
+     */
+    send(0x38, 0);
+
+    /*
+     * Display ON, cursor OFF
+     */
+    send(0x0C, 0);
+
+    /*
+     * Clear display
+     */
+    send(0x01, 0);
+    __delay_ms(10);
+
+    /*
+     * Cursor moves right
+     */
+    send(0x06, 0);
+
+
+    /*
+     * First line
+     */
+    send(0x80, 0);
+
+    send('H', 1);
+    send('E', 1);
+    send('L', 1);
+    send('L', 1);
+    send('O', 1);
+
+
+    /*
+     * Second line
+     */
+    send(0xC0, 0);
+
+    send('A', 1);
+    send('m', 1);
+    send('b', 1);
+    send('e', 1);
+    send('r', 1);
+
+
+    while(1)
+    {
+    }
+}
