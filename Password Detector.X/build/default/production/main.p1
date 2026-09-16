@@ -15,6 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v2.50\pic\include\builtins.h
 [v __delay `JF164 ~T0 @X0 0 e ]
 [p i __delay ]
+"447 main.c
+[v _buzz `(v ~T0 @X0 0 e? ]
 [p mainexit ]
 "1437 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1437: extern volatile unsigned char TRISC __attribute__((address(0x087)));
@@ -55,6 +57,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2690
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2690: extern volatile __bit RB4 __attribute__((address(0x34)));
 [v _RB4 `Vb ~T0 @X0 0 e@52 ]
+"1561
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 1561: extern volatile unsigned char TRISE __attribute__((address(0x089)));
+[v _TRISE `Vuc ~T0 @X0 0 e@137 ]
+"2777
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 2777: extern volatile __bit RE0 __attribute__((address(0x48)));
+[v _RE0 `Vb ~T0 @X0 0 e@72 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -322,40 +330,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 101 ]
 "499
 {
-"501
+"500
 [e ( _send (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"502
+"501
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"504
+"503
 [e ( _send (2 , -> -> 128 `i `uc -> -> 0 `i `uc ]
-"506
+"505
 [e ( _send (2 , -> -> 87 `ui `uc -> -> 1 `i `uc ]
-"507
+"506
 [e ( _send (2 , -> -> 82 `ui `uc -> -> 1 `i `uc ]
-"508
+"507
 [e ( _send (2 , -> -> 79 `ui `uc -> -> 1 `i `uc ]
-"509
+"508
 [e ( _send (2 , -> -> 78 `ui `uc -> -> 1 `i `uc ]
-"510
+"509
 [e ( _send (2 , -> -> 71 `ui `uc -> -> 1 `i `uc ]
-"511
+"510
 [e ( _send (2 , -> -> 32 `ui `uc -> -> 1 `i `uc ]
-"512
+"511
 [e ( _send (2 , -> -> 80 `ui `uc -> -> 1 `i `uc ]
-"513
+"512
 [e ( _send (2 , -> -> 65 `ui `uc -> -> 1 `i `uc ]
+"513
+[e ( _send (2 , -> -> 83 `ui `uc -> -> 1 `i `uc ]
 "514
 [e ( _send (2 , -> -> 83 `ui `uc -> -> 1 `i `uc ]
 "515
-[e ( _send (2 , -> -> 83 `ui `uc -> -> 1 `i `uc ]
-"516
 [e ( _send (2 , -> -> 87 `ui `uc -> -> 1 `i `uc ]
-"517
+"516
 [e ( _send (2 , -> -> 79 `ui `uc -> -> 1 `i `uc ]
-"518
+"517
 [e ( _send (2 , -> -> 82 `ui `uc -> -> 1 `i `uc ]
-"519
+"518
 [e ( _send (2 , -> -> 68 `ui `uc -> -> 1 `i `uc ]
+"519
+[e ( _buzz ..  ]
 "520
 }
 [e :U 102 ]
@@ -381,658 +391,484 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 100 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"544
+"539
 [v _main `(i ~T0 @X0 1 ef ]
-"545
+"540
 {
 [e :U _main ]
 [f ]
-"550
+"542
 [e = _TRISC -> -> 0 `i `uc ]
-"551
+"543
 [e = _TRISD -> -> 0 `i `uc ]
-"553
+"545
 [e = _PORTC -> -> 0 `i `uc ]
-"554
+"546
 [e = _PORTD -> -> 0 `i `uc ]
-"561
+"547
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"563
+"548
 [e ( _send (2 , -> -> 48 `i `uc -> -> 0 `i `uc ]
-"564
+"549
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"566
+"550
 [e ( _send (2 , -> -> 48 `i `uc -> -> 0 `i `uc ]
-"567
+"551
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"569
+"552
 [e ( _send (2 , -> -> 48 `i `uc -> -> 0 `i `uc ]
-"570
+"553
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"572
+"554
 [e ( _send (2 , -> -> 56 `i `uc -> -> 0 `i `uc ]
-"573
+"555
 [e ( _send (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
-"574
+"556
 [e ( _send (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"576
+"557
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"578
+"558
 [e ( _send (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
-"588
-[; ;main.c: 588:     TRISB = 0x1F;
+"559
 [e = _TRISB -> -> 31 `i `uc ]
-"591
-[; ;main.c: 591:     OPTION_REG &= 0x7F;
+"561
 [e =& _OPTION_REG -> -> 127 `i `Vuc ]
-"594
-[; ;main.c: 594:     ADCON1 = 0x0F;
+"563
 [e = _ADCON1 -> -> 15 `i `uc ]
-"598
-[; ;main.c: 598:     letter_index = 0;
+"565
 [e = _letter_index -> -> 0 `i `uc ]
-"605
-[; ;main.c: 605:     while(1)
+"566
 [e :U 105 ]
-"606
-[; ;main.c: 606:     {
+"567
 {
-"613
-[; ;main.c: 613:         RB5 = 0;
+"568
 [e = _RB5 -> -> 0 `i `b ]
-"614
-[; ;main.c: 614:         RB6 = 1;
 [e = _RB6 -> -> 1 `i `b ]
-"615
-[; ;main.c: 615:         RB7 = 1;
 [e = _RB7 -> -> 1 `i `b ]
-"618
-[; ;main.c: 618:         if(RB1 == 0)
+"569
 [e $ ! == -> _RB1 `i -> 0 `i 107  ]
-"619
-[; ;main.c: 619:         {
+"570
 {
-"620
-[; ;main.c: 620:             if(letter_index < 4)
+"571
 [e $ ! < -> _letter_index `i -> 4 `i 108  ]
-"621
-[; ;main.c: 621:             {
+"572
 {
-"622
-[; ;main.c: 622:                 send('A', 1);
+"573
 [e ( _send (2 , -> -> 65 `ui `uc -> -> 1 `i `uc ]
-"624
-[; ;main.c: 624:                 letter[letter_index] = 'A';
+"575
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 65 `ui `uc ]
-"625
-[; ;main.c: 625:                 letter_index++;
+"576
 [e ++ _letter_index -> -> 1 `i `uc ]
-"627
-[; ;main.c: 627:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"578
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"628
-[; ;main.c: 628:             }
+"579
 }
 [e :U 108 ]
-"630
-[; ;main.c: 630:             if(letter_index == 4)
+"581
 [e $ ! == -> _letter_index `i -> 4 `i 109  ]
-"631
-[; ;main.c: 631:             {
+"582
 {
-"632
-[; ;main.c: 632:                 check_password();
+"583
 [e ( _check_password ..  ]
-"633
-[; ;main.c: 633:             }
+"584
 }
 [e :U 109 ]
-"634
-[; ;main.c: 634:         }
+"585
 }
 [e $U 110  ]
-"637
-[; ;main.c: 637:         else if(RB2 == 0)
+"586
 [e :U 107 ]
 [e $ ! == -> _RB2 `i -> 0 `i 111  ]
-"638
-[; ;main.c: 638:         {
+"587
 {
-"639
-[; ;main.c: 639:             if(letter_index < 4)
+"588
 [e $ ! < -> _letter_index `i -> 4 `i 112  ]
-"640
-[; ;main.c: 640:             {
+"589
 {
-"641
-[; ;main.c: 641:                 send('B', 1);
+"590
 [e ( _send (2 , -> -> 66 `ui `uc -> -> 1 `i `uc ]
-"643
-[; ;main.c: 643:                 letter[letter_index] = 'B';
+"592
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 66 `ui `uc ]
-"644
-[; ;main.c: 644:                 letter_index++;
+"593
 [e ++ _letter_index -> -> 1 `i `uc ]
-"646
-[; ;main.c: 646:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"595
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"647
-[; ;main.c: 647:             }
+"596
 }
 [e :U 112 ]
-"649
-[; ;main.c: 649:             if(letter_index == 4)
+"598
 [e $ ! == -> _letter_index `i -> 4 `i 113  ]
-"650
-[; ;main.c: 650:             {
+"599
 {
-"651
-[; ;main.c: 651:                 check_password();
+"600
 [e ( _check_password ..  ]
-"652
-[; ;main.c: 652:             }
+"601
 }
 [e :U 113 ]
-"653
-[; ;main.c: 653:         }
+"602
 }
 [e $U 114  ]
-"656
-[; ;main.c: 656:         else if(RB3 == 0)
+"603
 [e :U 111 ]
 [e $ ! == -> _RB3 `i -> 0 `i 115  ]
-"657
-[; ;main.c: 657:         {
+"604
 {
-"658
-[; ;main.c: 658:             if(letter_index < 4)
+"605
 [e $ ! < -> _letter_index `i -> 4 `i 116  ]
-"659
-[; ;main.c: 659:             {
+"606
 {
-"660
-[; ;main.c: 660:                 send('C', 1);
+"607
 [e ( _send (2 , -> -> 67 `ui `uc -> -> 1 `i `uc ]
-"662
-[; ;main.c: 662:                 letter[letter_index] = 'C';
+"609
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 67 `ui `uc ]
-"663
-[; ;main.c: 663:                 letter_index++;
+"610
 [e ++ _letter_index -> -> 1 `i `uc ]
-"665
-[; ;main.c: 665:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"612
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"666
-[; ;main.c: 666:             }
+"613
 }
 [e :U 116 ]
-"668
-[; ;main.c: 668:             if(letter_index == 4)
+"615
 [e $ ! == -> _letter_index `i -> 4 `i 117  ]
-"669
-[; ;main.c: 669:             {
+"616
 {
-"670
-[; ;main.c: 670:                 check_password();
+"617
 [e ( _check_password ..  ]
-"671
-[; ;main.c: 671:             }
+"618
 }
 [e :U 117 ]
-"672
-[; ;main.c: 672:         }
+"619
 }
 [e $U 118  ]
-"675
-[; ;main.c: 675:         else if(RB4 == 0)
+"620
 [e :U 115 ]
 [e $ ! == -> _RB4 `i -> 0 `i 119  ]
-"676
-[; ;main.c: 676:         {
+"621
 {
-"677
-[; ;main.c: 677:             if(letter_index < 4)
+"622
 [e $ ! < -> _letter_index `i -> 4 `i 120  ]
-"678
-[; ;main.c: 678:             {
+"623
 {
-"679
-[; ;main.c: 679:                 send('D', 1);
+"624
 [e ( _send (2 , -> -> 68 `ui `uc -> -> 1 `i `uc ]
-"681
-[; ;main.c: 681:                 letter[letter_index] = 'D';
+"626
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 68 `ui `uc ]
-"682
-[; ;main.c: 682:                 letter_index++;
+"627
 [e ++ _letter_index -> -> 1 `i `uc ]
-"684
-[; ;main.c: 684:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"629
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"685
-[; ;main.c: 685:             }
+"630
 }
 [e :U 120 ]
-"687
-[; ;main.c: 687:             if(letter_index == 4)
+"632
 [e $ ! == -> _letter_index `i -> 4 `i 121  ]
-"688
-[; ;main.c: 688:             {
+"633
 {
-"689
-[; ;main.c: 689:                 check_password();
+"634
 [e ( _check_password ..  ]
-"690
-[; ;main.c: 690:             }
+"635
 }
 [e :U 121 ]
-"691
-[; ;main.c: 691:         }
+"636
 }
 [e :U 119 ]
 [e :U 118 ]
 [e :U 114 ]
 [e :U 110 ]
-"699
-[; ;main.c: 699:         RB5 = 1;
+"637
 [e = _RB5 -> -> 1 `i `b ]
-"700
-[; ;main.c: 700:         RB6 = 0;
 [e = _RB6 -> -> 0 `i `b ]
-"701
-[; ;main.c: 701:         RB7 = 1;
 [e = _RB7 -> -> 1 `i `b ]
-"704
-[; ;main.c: 704:         if(RB1 == 0)
+"638
 [e $ ! == -> _RB1 `i -> 0 `i 122  ]
-"705
-[; ;main.c: 705:         {
+"639
 {
-"706
-[; ;main.c: 706:             if(letter_index < 4)
+"640
 [e $ ! < -> _letter_index `i -> 4 `i 123  ]
-"707
-[; ;main.c: 707:             {
+"641
 {
-"708
-[; ;main.c: 708:                 send('1', 1);
+"642
 [e ( _send (2 , -> -> 49 `ui `uc -> -> 1 `i `uc ]
-"710
-[; ;main.c: 710:                 letter[letter_index] = '1';
+"644
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 49 `ui `uc ]
-"711
-[; ;main.c: 711:                 letter_index++;
+"645
 [e ++ _letter_index -> -> 1 `i `uc ]
-"713
-[; ;main.c: 713:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"647
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"714
-[; ;main.c: 714:             }
+"648
 }
 [e :U 123 ]
-"716
-[; ;main.c: 716:             if(letter_index == 4)
+"650
 [e $ ! == -> _letter_index `i -> 4 `i 124  ]
-"717
-[; ;main.c: 717:             {
+"651
 {
-"718
-[; ;main.c: 718:                 check_password();
+"652
 [e ( _check_password ..  ]
-"719
-[; ;main.c: 719:             }
+"653
 }
 [e :U 124 ]
-"720
-[; ;main.c: 720:         }
+"654
 }
 [e $U 125  ]
-"723
-[; ;main.c: 723:         else if(RB2 == 0)
+"656
 [e :U 122 ]
 [e $ ! == -> _RB2 `i -> 0 `i 126  ]
-"724
-[; ;main.c: 724:         {
+"657
 {
-"725
-[; ;main.c: 725:             if(letter_index < 4)
+"658
 [e $ ! < -> _letter_index `i -> 4 `i 127  ]
-"726
-[; ;main.c: 726:             {
+"659
 {
-"727
-[; ;main.c: 727:                 send('2', 1);
+"660
 [e ( _send (2 , -> -> 50 `ui `uc -> -> 1 `i `uc ]
-"729
-[; ;main.c: 729:                 letter[letter_index] = '2';
+"662
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 50 `ui `uc ]
-"730
-[; ;main.c: 730:                 letter_index++;
+"663
 [e ++ _letter_index -> -> 1 `i `uc ]
-"732
-[; ;main.c: 732:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"665
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"733
-[; ;main.c: 733:             }
+"666
 }
 [e :U 127 ]
-"735
-[; ;main.c: 735:             if(letter_index == 4)
+"668
 [e $ ! == -> _letter_index `i -> 4 `i 128  ]
-"736
-[; ;main.c: 736:             {
+"669
 {
-"737
-[; ;main.c: 737:                 check_password();
+"670
 [e ( _check_password ..  ]
-"738
-[; ;main.c: 738:             }
+"671
 }
 [e :U 128 ]
-"739
-[; ;main.c: 739:         }
+"672
 }
 [e $U 129  ]
-"742
-[; ;main.c: 742:         else if(RB3 == 0)
+"673
 [e :U 126 ]
 [e $ ! == -> _RB3 `i -> 0 `i 130  ]
-"743
-[; ;main.c: 743:         {
+"674
 {
-"744
-[; ;main.c: 744:             if(letter_index < 4)
+"675
 [e $ ! < -> _letter_index `i -> 4 `i 131  ]
-"745
-[; ;main.c: 745:             {
+"676
 {
-"746
-[; ;main.c: 746:                 send('3', 1);
+"677
 [e ( _send (2 , -> -> 51 `ui `uc -> -> 1 `i `uc ]
-"748
-[; ;main.c: 748:                 letter[letter_index] = '3';
+"679
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 51 `ui `uc ]
-"749
-[; ;main.c: 749:                 letter_index++;
+"680
 [e ++ _letter_index -> -> 1 `i `uc ]
-"751
-[; ;main.c: 751:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"682
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"752
-[; ;main.c: 752:             }
+"683
 }
 [e :U 131 ]
-"754
-[; ;main.c: 754:             if(letter_index == 4)
+"685
 [e $ ! == -> _letter_index `i -> 4 `i 132  ]
-"755
-[; ;main.c: 755:             {
+"686
 {
-"756
-[; ;main.c: 756:                 check_password();
+"687
 [e ( _check_password ..  ]
-"757
-[; ;main.c: 757:             }
+"688
 }
 [e :U 132 ]
-"758
-[; ;main.c: 758:         }
+"689
 }
 [e $U 133  ]
-"761
-[; ;main.c: 761:         else if(RB4 == 0)
+"690
 [e :U 130 ]
 [e $ ! == -> _RB4 `i -> 0 `i 134  ]
-"762
-[; ;main.c: 762:         {
+"691
 {
-"763
-[; ;main.c: 763:             if(letter_index < 4)
+"692
 [e $ ! < -> _letter_index `i -> 4 `i 135  ]
-"764
-[; ;main.c: 764:             {
+"693
 {
-"765
-[; ;main.c: 765:                 send('4', 1);
+"694
 [e ( _send (2 , -> -> 52 `ui `uc -> -> 1 `i `uc ]
-"767
-[; ;main.c: 767:                 letter[letter_index] = '4';
+"696
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 52 `ui `uc ]
-"768
-[; ;main.c: 768:                 letter_index++;
+"697
 [e ++ _letter_index -> -> 1 `i `uc ]
-"770
-[; ;main.c: 770:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"699
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"771
-[; ;main.c: 771:             }
+"700
 }
 [e :U 135 ]
-"773
-[; ;main.c: 773:             if(letter_index == 4)
+"702
 [e $ ! == -> _letter_index `i -> 4 `i 136  ]
-"774
-[; ;main.c: 774:             {
+"703
 {
-"775
-[; ;main.c: 775:                 check_password();
+"704
 [e ( _check_password ..  ]
-"776
-[; ;main.c: 776:             }
+"705
 }
 [e :U 136 ]
-"777
-[; ;main.c: 777:         }
+"706
 }
 [e :U 134 ]
 [e :U 133 ]
 [e :U 129 ]
 [e :U 125 ]
-"785
-[; ;main.c: 785:         RB5 = 1;
+"708
 [e = _RB5 -> -> 1 `i `b ]
-"786
-[; ;main.c: 786:         RB6 = 1;
 [e = _RB6 -> -> 1 `i `b ]
-"787
-[; ;main.c: 787:         RB7 = 0;
 [e = _RB7 -> -> 0 `i `b ]
-"790
-[; ;main.c: 790:         if(RB1 == 0)
+"711
 [e $ ! == -> _RB1 `i -> 0 `i 137  ]
-"791
-[; ;main.c: 791:         {
+"712
 {
-"792
-[; ;main.c: 792:             if(letter_index < 4)
+"713
 [e $ ! < -> _letter_index `i -> 4 `i 138  ]
-"793
-[; ;main.c: 793:             {
+"714
 {
-"794
-[; ;main.c: 794:                 send('5', 1);
+"715
 [e ( _send (2 , -> -> 53 `ui `uc -> -> 1 `i `uc ]
-"796
-[; ;main.c: 796:                 letter[letter_index] = '5';
+"717
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 53 `ui `uc ]
-"797
-[; ;main.c: 797:                 letter_index++;
+"718
 [e ++ _letter_index -> -> 1 `i `uc ]
-"799
-[; ;main.c: 799:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"720
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"800
-[; ;main.c: 800:             }
+"721
 }
 [e :U 138 ]
-"802
-[; ;main.c: 802:             if(letter_index == 4)
+"723
 [e $ ! == -> _letter_index `i -> 4 `i 139  ]
-"803
-[; ;main.c: 803:             {
+"724
 {
-"804
-[; ;main.c: 804:                 check_password();
+"725
 [e ( _check_password ..  ]
-"805
-[; ;main.c: 805:             }
+"726
 }
 [e :U 139 ]
-"806
-[; ;main.c: 806:         }
+"727
 }
 [e $U 140  ]
-"809
-[; ;main.c: 809:         else if(RB2 == 0)
+"728
 [e :U 137 ]
 [e $ ! == -> _RB2 `i -> 0 `i 141  ]
-"810
-[; ;main.c: 810:         {
+"729
 {
-"811
-[; ;main.c: 811:             if(letter_index < 4)
+"730
 [e $ ! < -> _letter_index `i -> 4 `i 142  ]
-"812
-[; ;main.c: 812:             {
+"731
 {
-"813
-[; ;main.c: 813:                 send('6', 1);
+"732
 [e ( _send (2 , -> -> 54 `ui `uc -> -> 1 `i `uc ]
-"815
-[; ;main.c: 815:                 letter[letter_index] = '6';
+"734
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 54 `ui `uc ]
-"816
-[; ;main.c: 816:                 letter_index++;
+"735
 [e ++ _letter_index -> -> 1 `i `uc ]
-"818
-[; ;main.c: 818:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"737
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"819
-[; ;main.c: 819:             }
+"738
 }
 [e :U 142 ]
-"821
-[; ;main.c: 821:             if(letter_index == 4)
+"740
 [e $ ! == -> _letter_index `i -> 4 `i 143  ]
-"822
-[; ;main.c: 822:             {
+"741
 {
-"823
-[; ;main.c: 823:                 check_password();
+"742
 [e ( _check_password ..  ]
-"824
-[; ;main.c: 824:             }
+"743
 }
 [e :U 143 ]
-"825
-[; ;main.c: 825:         }
+"744
 }
 [e $U 144  ]
-"828
-[; ;main.c: 828:         else if(RB3 == 0)
+"745
 [e :U 141 ]
 [e $ ! == -> _RB3 `i -> 0 `i 145  ]
-"829
-[; ;main.c: 829:         {
+"746
 {
-"830
-[; ;main.c: 830:             if(letter_index < 4)
+"747
 [e $ ! < -> _letter_index `i -> 4 `i 146  ]
-"831
-[; ;main.c: 831:             {
+"748
 {
-"832
-[; ;main.c: 832:                 send('7', 1);
+"749
 [e ( _send (2 , -> -> 55 `ui `uc -> -> 1 `i `uc ]
-"834
-[; ;main.c: 834:                 letter[letter_index] = '7';
+"751
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 55 `ui `uc ]
-"835
-[; ;main.c: 835:                 letter_index++;
+"752
 [e ++ _letter_index -> -> 1 `i `uc ]
-"837
-[; ;main.c: 837:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"754
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"838
-[; ;main.c: 838:             }
+"755
 }
 [e :U 146 ]
-"840
-[; ;main.c: 840:             if(letter_index == 4)
+"757
 [e $ ! == -> _letter_index `i -> 4 `i 147  ]
-"841
-[; ;main.c: 841:             {
+"758
 {
-"842
-[; ;main.c: 842:                 check_password();
+"759
 [e ( _check_password ..  ]
-"843
-[; ;main.c: 843:             }
+"760
 }
 [e :U 147 ]
-"844
-[; ;main.c: 844:         }
+"761
 }
 [e $U 148  ]
-"847
-[; ;main.c: 847:         else if(RB4 == 0)
+"762
 [e :U 145 ]
 [e $ ! == -> _RB4 `i -> 0 `i 149  ]
-"848
-[; ;main.c: 848:         {
+"763
 {
-"849
-[; ;main.c: 849:             if(letter_index < 4)
+"764
 [e $ ! < -> _letter_index `i -> 4 `i 150  ]
-"850
-[; ;main.c: 850:             {
+"765
 {
-"851
-[; ;main.c: 851:                 send('8', 1);
+"766
 [e ( _send (2 , -> -> 56 `ui `uc -> -> 1 `i `uc ]
-"853
-[; ;main.c: 853:                 letter[letter_index] = '8';
+"768
 [e = *U + &U _letter * -> _letter_index `ux -> -> # *U &U _letter `ui `ux -> -> 56 `ui `uc ]
-"854
-[; ;main.c: 854:                 letter_index++;
+"769
 [e ++ _letter_index -> -> 1 `i `uc ]
-"856
-[; ;main.c: 856:                 _delay((unsigned long)((250)*(20000000UL/4000.0)));
+"771
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"857
-[; ;main.c: 857:             }
+"772
 }
 [e :U 150 ]
-"859
-[; ;main.c: 859:             if(letter_index == 4)
+"774
 [e $ ! == -> _letter_index `i -> 4 `i 151  ]
-"860
-[; ;main.c: 860:             {
+"775
 {
-"861
-[; ;main.c: 861:                 check_password();
+"776
 [e ( _check_password ..  ]
-"862
-[; ;main.c: 862:             }
+"777
 }
 [e :U 151 ]
-"863
-[; ;main.c: 863:         }
+"778
 }
 [e :U 149 ]
 [e :U 148 ]
 [e :U 144 ]
 [e :U 140 ]
-"864
-[; ;main.c: 864:     }
+"779
 }
 [e :U 104 ]
 [e $U 105  ]
 [e :U 106 ]
-"866
-[; ;main.c: 866:     return 0;
+"781
 [e ) -> 0 `i ]
 [e $UE 103  ]
-"867
-[; ;main.c: 867: }
+"782
 [e :UE 103 ]
+}
+"784
+[v _buzz `(v ~T0 @X0 1 ef ]
+{
+[e :U _buzz ]
+[f ]
+"785
+[e = _TRISE -> -> 0 `i `uc ]
+"786
+[e = _RE0 -> -> 1 `i `b ]
+"787
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
+"788
+[e = _RE0 -> -> 0 `i `b ]
+"789
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
+"790
+[e :UE 152 ]
 }

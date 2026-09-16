@@ -444,7 +444,7 @@
 
 void send(unsigned char value, unsigned char rs);
 void check_password(void);
-
+void buzz();
 char letter[5];
 unsigned char letter_index = 0;
 
@@ -497,7 +497,6 @@ void check_password(void)
     }
     else
     {
-        // Clear LCD
         send(0x01, 0);
         __delay_ms(10);
 
@@ -517,6 +516,7 @@ void check_password(void)
         send('O',1);
         send('R',1);
         send('D',1);
+        buzz();
     }
 
     // Reset password
@@ -536,85 +536,36 @@ void check_password(void)
     __delay_ms(10);
 }
 
-
-// ========================================
-// MAIN
-// ========================================
-
 int main(void)
 {
-    // ====================================
-    // PORT SETUP
-    // ====================================
 
     TRISC = 0x00;
     TRISD = 0x00;
 
     PORTC = 0x00;
     PORTD = 0x00;
-
-
-    // ====================================
-    // LCD INITIALIZATION
-    // ====================================
-
     __delay_ms(200);
-
     send(0x30, 0);
     __delay_ms(10);
-
     send(0x30, 0);
     __delay_ms(10);
-
     send(0x30, 0);
     __delay_ms(10);
-
     send(0x38, 0);      // 8-bit, 2-line
     send(0x0C, 0);      // Display ON, cursor OFF
     send(0x01, 0);      // Clear display
-
     __delay_ms(10);
-
     send(0x06, 0);      // Cursor increment
-
-
-    // ====================================
-    // KEYPAD
-    // ====================================
-
-    // RB0-RB4 = INPUT
-    // RB5-RB7 = OUTPUT
-
     TRISB = 0x1F;
-
     // Enable PORTB pull-ups
     OPTION_REG &= 0x7F;
-
     // Digital I/O
     ADCON1 = 0x0F;
-
-
     // Empty password
     letter_index = 0;
-
-
-    // ====================================
-    // MAIN LOOP
-    // ====================================
-
     while(1)
     {
-
-        // =================================
-        // ROW 1
-        // A B C D
-        // =================================
-
-        RB5 = 0;
-        RB6 = 1;
-        RB7 = 1;
-
-        // A
+        RB5 = 0;RB6 = 1;RB7 = 1;
         if(RB1 == 0)
         {
             if(letter_index < 4)
@@ -632,8 +583,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // B
         else if(RB2 == 0)
         {
             if(letter_index < 4)
@@ -651,8 +600,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // C
         else if(RB3 == 0)
         {
             if(letter_index < 4)
@@ -670,8 +617,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // D
         else if(RB4 == 0)
         {
             if(letter_index < 4)
@@ -689,18 +634,7 @@ int main(void)
                 check_password();
             }
         }
-
-
-        // =================================
-        // ROW 2
-        // 1 2 3 4
-        // =================================
-
-        RB5 = 1;
-        RB6 = 0;
-        RB7 = 1;
-
-        // 1
+        RB5 = 1;RB6 = 0;RB7 = 1;
         if(RB1 == 0)
         {
             if(letter_index < 4)
@@ -718,8 +652,7 @@ int main(void)
                 check_password();
             }
         }
-
-        // 2
+        
         else if(RB2 == 0)
         {
             if(letter_index < 4)
@@ -737,8 +670,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // 3
         else if(RB3 == 0)
         {
             if(letter_index < 4)
@@ -756,8 +687,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // 4
         else if(RB4 == 0)
         {
             if(letter_index < 4)
@@ -776,17 +705,9 @@ int main(void)
             }
         }
 
+        RB5 = 1;RB6 = 1;RB7 = 0;
 
-        // =================================
-        // ROW 3
-        // 5 6 7 8
-        // =================================
-
-        RB5 = 1;
-        RB6 = 1;
-        RB7 = 0;
-
-        // 5
+       
         if(RB1 == 0)
         {
             if(letter_index < 4)
@@ -804,8 +725,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // 6
         else if(RB2 == 0)
         {
             if(letter_index < 4)
@@ -823,8 +742,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // 7
         else if(RB3 == 0)
         {
             if(letter_index < 4)
@@ -842,8 +759,6 @@ int main(void)
                 check_password();
             }
         }
-
-        // 8
         else if(RB4 == 0)
         {
             if(letter_index < 4)
@@ -864,4 +779,12 @@ int main(void)
     }
 
     return 0;
+}
+
+void buzz(){
+    TRISE=0x00;
+    RE0=1;
+    __delay_ms(2500);
+    RE0=0;
+    __delay_ms(2500);
 }

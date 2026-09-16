@@ -1914,7 +1914,7 @@ extern __bank0 __bit __timeout;
 
 void send(unsigned char value, unsigned char rs);
 void check_password(void);
-
+void buzz();
 char letter[5];
 unsigned char letter_index = 0;
 
@@ -1967,7 +1967,6 @@ void check_password(void)
     }
     else
     {
-
         send(0x01, 0);
         _delay((unsigned long)((10)*(20000000UL/4000.0)));
 
@@ -1987,6 +1986,7 @@ void check_password(void)
         send('O',1);
         send('R',1);
         send('D',1);
+        buzz();
     }
 
 
@@ -2006,77 +2006,36 @@ void check_password(void)
     _delay((unsigned long)((10)*(20000000UL/4000.0)));
 }
 
-
-
-
-
-
 int main(void)
 {
-
-
-
 
     TRISC = 0x00;
     TRISD = 0x00;
 
     PORTC = 0x00;
     PORTD = 0x00;
-
-
-
-
-
-
     _delay((unsigned long)((200)*(20000000UL/4000.0)));
-
     send(0x30, 0);
     _delay((unsigned long)((10)*(20000000UL/4000.0)));
-
     send(0x30, 0);
     _delay((unsigned long)((10)*(20000000UL/4000.0)));
-
     send(0x30, 0);
     _delay((unsigned long)((10)*(20000000UL/4000.0)));
-
     send(0x38, 0);
     send(0x0C, 0);
     send(0x01, 0);
-
     _delay((unsigned long)((10)*(20000000UL/4000.0)));
-
     send(0x06, 0);
-# 588 "main.c"
     TRISB = 0x1F;
-
 
     OPTION_REG &= 0x7F;
 
-
     ADCON1 = 0x0F;
 
-
-
     letter_index = 0;
-
-
-
-
-
-
     while(1)
     {
-
-
-
-
-
-
-        RB5 = 0;
-        RB6 = 1;
-        RB7 = 1;
-
-
+        RB5 = 0;RB6 = 1;RB7 = 1;
         if(RB1 == 0)
         {
             if(letter_index < 4)
@@ -2094,8 +2053,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB2 == 0)
         {
             if(letter_index < 4)
@@ -2113,8 +2070,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB3 == 0)
         {
             if(letter_index < 4)
@@ -2132,8 +2087,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB4 == 0)
         {
             if(letter_index < 4)
@@ -2151,18 +2104,7 @@ int main(void)
                 check_password();
             }
         }
-
-
-
-
-
-
-
-        RB5 = 1;
-        RB6 = 0;
-        RB7 = 1;
-
-
+        RB5 = 1;RB6 = 0;RB7 = 1;
         if(RB1 == 0)
         {
             if(letter_index < 4)
@@ -2181,7 +2123,6 @@ int main(void)
             }
         }
 
-
         else if(RB2 == 0)
         {
             if(letter_index < 4)
@@ -2199,8 +2140,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB3 == 0)
         {
             if(letter_index < 4)
@@ -2218,8 +2157,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB4 == 0)
         {
             if(letter_index < 4)
@@ -2238,15 +2175,7 @@ int main(void)
             }
         }
 
-
-
-
-
-
-
-        RB5 = 1;
-        RB6 = 1;
-        RB7 = 0;
+        RB5 = 1;RB6 = 1;RB7 = 0;
 
 
         if(RB1 == 0)
@@ -2266,8 +2195,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB2 == 0)
         {
             if(letter_index < 4)
@@ -2285,8 +2212,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB3 == 0)
         {
             if(letter_index < 4)
@@ -2304,8 +2229,6 @@ int main(void)
                 check_password();
             }
         }
-
-
         else if(RB4 == 0)
         {
             if(letter_index < 4)
@@ -2326,4 +2249,12 @@ int main(void)
     }
 
     return 0;
+}
+
+void buzz(){
+    TRISE=0x00;
+    RE0=1;
+    _delay((unsigned long)((2500)*(20000000UL/4000.0)));
+    RE0=0;
+    _delay((unsigned long)((2500)*(20000000UL/4000.0)));
 }
