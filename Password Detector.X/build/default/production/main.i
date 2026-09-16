@@ -7,7 +7,6 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 432 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1898,7 +1897,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
-# 432 "main.c" 2
+# 1 "main.c" 2
 
 
 #pragma config FOSC = HS
@@ -1920,9 +1919,6 @@ unsigned char letter_index = 0;
 
 
 
-
-
-
 void send(unsigned char value, unsigned char rs)
 {
     PORTD = value;
@@ -1937,11 +1933,6 @@ void send(unsigned char value, unsigned char rs)
 
     _delay((unsigned long)((5)*(20000000UL/4000.0)));
 }
-
-
-
-
-
 
 void check_password(void)
 {
